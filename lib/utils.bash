@@ -19,7 +19,7 @@ TOOL_NAME=terraformer
 GH_REPO=https://github.com/GoogleCloudPlatform/terraformer
 
 fail() {
-  printf >&2 'asdf-%s: %s' "$TOOL_NAME" "$@"
+  printf >&2 'asdf-%s: %s\n' "$TOOL_NAME" "$@"
   exit 1
 }
 
