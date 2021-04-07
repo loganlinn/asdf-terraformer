@@ -60,7 +60,7 @@ install_version() {
 
   local release_file="$install_path/bin/$TOOL_NAME"
   (
-    mkdir -p "$install_path"
+    mkdir -p "$install_path/bin"
     download_release "$version" "$release_file"
     chmod a+x "$release_file"
     echo "$TOOL_NAME $version installation was successful!"
