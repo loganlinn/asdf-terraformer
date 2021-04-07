@@ -9,6 +9,7 @@ fi
 shopt -s nullglob globstar
 
 require() { hash "$@" || exit 127; }
+
 require curl
 require git
 require sed
@@ -37,8 +38,8 @@ list_all_versions() {
 }
 
 download_release() {
-  local version="$1"
-  local download_path="$2"
+  local version=$1
+  local download_path=$2
 
   # i.e. terraformer-all-darwin-amd64
   # i.e. terraformer-all-linux-amd64
@@ -49,15 +50,15 @@ download_release() {
 }
 
 install_version() {
-  local install_type="$1"
-  local version="$2"
-  local install_path="$3"
+  local install_type=$1
+  local version=$2
+  local install_path=$3
 
   if [[ $install_type != version ]]; then
     fail "asdf-$TOOL_NAME supports release installs only"
   fi
 
-  local release_file="$install_path/$TOOL_NAME"
+  local release_file="$install_path/bin/$TOOL_NAME"
   (
     mkdir -p "$install_path"
     download_release "$version" "$release_file"
